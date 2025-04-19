@@ -1,0 +1,68 @@
+$primary: #006d77 !default;               
+$secondary: #83c5be !default;          
+$body-bg: #edf6f9 !default;               
+$font-family-base: 'Poppins', sans-serif !default;
+$btn-hover-bg: darken($secondary, 15%) !default;
+$nav-link-active-bg: rgba(0, 109, 119, 0.3) !default;
+$nav-link-active-color: #fff !default;
+
+@import "../bootstrap/scss/functions";
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/mixins";
+@import "../bootstrap/scss/bootstrap";
+
+body {
+  background-color: $body-bg;
+  font-family: $font-family-base;
+}
+
+.navbar-light {
+  .navbar-nav {
+    .nav-link.active {
+      background-color: $nav-link-active-bg;
+      color:            $nav-link-active-color;
+      padding:          .5rem 1rem;
+      border-radius:    .5rem;
+      transition:       background-color .3s;
+      &:hover {
+        background-color: rgba(0, 109, 119, 0.5);
+      }
+    }
+  }
+}
+
+.btn-primary {
+  background-color: $secondary;
+  border-color:     $secondary;
+  font-weight:      600;
+  box-shadow:       0 2px 4px rgba(0,0,0,0.1);
+  transition:       transform .2s, box-shadow .2s;
+  &:hover {
+    background-color: $btn-hover-bg;
+    border-color:     $btn-hover-bg;
+    transform:        translateY(-2px);
+    box-shadow:       0 4px 8px rgba(0,0,0,0.15);
+  }
+}
+
+.card {
+  border: none;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+  transition: transform .3s;
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+.fade-in {
+  animation: floatIn 1.2s ease-out both;
+}
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+html, body { height: 100%; }
+body       { display: flex; flex-direction: column; }
+footer     { margin-top: auto; background-color: darken($body-bg, 3%); padding: 1rem 0; }
